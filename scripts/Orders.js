@@ -21,9 +21,9 @@ const findProduct = (order, allProducts) => {
 
 // Function whose responsibility is to find the employee for an order
 const findEmployee = (order, allEmployees) => {
-    let orderEmployee = null
+    let orderEmployee = ""
 
-    for (const employee in allEmployees) {
+    for (const employee of employees) {
         if (employee.id === order.employeeId) {
             orderEmployee = employee
         }
@@ -40,7 +40,7 @@ export const Orders = () => {
         const employee = findEmployee(order, employees)
         const product = findProduct(order)
 
-        html += `<li>${product.name} was sold by ${employees.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
+        html += `<li>${product.name} was sold by ${employee.name} on ${new Date(order.timestamp).toLocaleDateString()}</li>`
     }
 
     html += "</ul>"
