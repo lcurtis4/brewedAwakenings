@@ -5,32 +5,17 @@ document.addEventListener(
     (clickEvent) => {
         const itemClicked = clickEvent.target 
         if (itemClicked.id.startsWith("product")) {
-            const [,productPrice] = itemClicked.id.split("--") 
-
-            for (const product of products) {
-                if (product.price === parseInt(productPrice)) {
-                    window.alert(`${product.name} ${product.price}`)
-                }
-            }
-        }
-    }
-)
-
-document.addEventListener(
-    "click",
-    (clickEvent) => {
-        const itemClicked = clickEvent.target 
-        if (itemClicked.id.startsWith("product")) {
             const [,productId] = itemClicked.id.split("--")
 
             for (const product of products) {
                 if (product.id === parseInt(productId)) {
-                    window.alert(`${product.name} services ${product.city}`)
+                    window.alert(`${product.name} is $${product.price}`)
                 }
             }
         }
     }
 )
+
 const products = getProducts()
 
 export const Products = () => {
